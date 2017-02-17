@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  
+<head>
+  <meta charset="UTF-8">
+  <title>Lab 5, Question 2</title>
+</head>
+<body>
+
+<h1>JQuery Selector Practice</h1>
+
+<h2>Click on the H2 elements, like me, to give them a green background.</h2>
+
+<p>Hide me when the <span>mouse</span> hovers over me</p>
+
+<P>Hide me on mouseover too! <span>Make sure I come back</span> when the mouse moves elsewhere</P>
+
+<h1>A list of items</h1>
+
+<P>Some of these things are important, some are not</P>
+<ol>
+  <li class="not_important">First thing is not important</li>
+  <li class="not_important">Second thing is also not important</li>
+  <li>But, the third thing is <span>important</span></li>
+  <li>And so is the fourth thing.</li>
+
+</ol>
+
+<h2>Buttons</h2>
+
+<button type="button" id="h1_blue">Make H1 items blue</button>
+
+<button type="button" id="remove_not_important">Remove not important items</button>
+
+<h1>Another list</h1>
+
+<p>Make these items fade or slide away when you click them. Make sure the
+li elements in the list above don't slide away - you'll need to select only
+li elements within this unordered list. </p>
+
+<ul>
+  <li>JQuery</li>
+  <li>is</li>
+  <li>more</li>
+  <li>concise</li>
+  <li>than</li>
+  <li>plain</li>
+  <li>JavaScript</li>
+</ul>
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+
+      $(document).ready(function(){
+	  
+	  //add click event to all 'li' elements
+	  $("li").click( function() {
+	  //make each li element fade out when clicked
+	  $(this).fadeTo(1000, 0);
+	  
+	  });
+	  //add click event to the button with id remove_not_important
+	  $("#remove_not_important").click( function() {
+	  $(".not_important").remove();
+	  
+	  });
+	  
+    
+	  //add click event to button with id="h1_blue"
+	  $("#h1_blue").click( function() {
+	  $("h1").css({
+	  //change the background color for all h1 elements to blue
+	  "background" : "blue"
+});	  
+	  });
+	  
+    //add hover event to all "p" elements
+	$("p").hover(
+      //The mouseover function
+      function(){
+        $(this).fadeTo(1000, 0); //fade to 0 oppacity over 1 second
+      },
+      //The mouseout function
+      function() {
+        $(this).fadeTo(1000, 1);//fade back to full opacity over 1 second
+      }
+    );   //end of hover() function. All one line of code!
+
+	//add click event to h2 elements
+	$("h2").click(function(){
+	  $(this).css('background', 'yellow'); //change h2 background color to yellow
+	  
+	  });
+	// Select all span elements
+    $("span").css({
+        //change elements to bold
+		"font-weight" : "bold"
+		
+      });
+    });
+
+
+</script>
+</html>
+
+    Contact GitHub API Training Shop Blog About 
+
+    © 2017 GitHub, Inc. Terms 
