@@ -1,0 +1,53 @@
+<DOCTYPEHTML>
+<style>
+
+th, td{
+border-style: solid;
+border-color: black;
+border-width: 1px;
+}
+
+.done{
+text-decoration: line-through;
+}
+</style>
+<title> To-Do List </title>
+
+To-do item:
+<input type="text" id="textField"> </input>
+<button id="addButton"> ADD </button>
+
+<ul>
+
+
+</ul>
+<br>
+<button id="removeDone"> Remove Done Items </button>
+<br>
+<table>
+<tr>
+<th>Item</th>
+<th>Date of Completion </th>
+</tr>
+</table>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+	  
+
+$("#addButton").click( function(){
+$('ul').append('<li>'+$('input').val()+' </li>')
+$('input').val('')
+$('li').click( function() {
+$(this).toggleClass('done')
+});
+
+});
+$("#removeDone").click( function(){
+ var d = new Date($.now());
+$("table").append('<tr> <td>'+$('.done').text()+'</td><td>'+d  +'</tr>')
+
+$(".done").remove()
+
+});
+</script>
+</html>
