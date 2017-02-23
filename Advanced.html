@@ -33,21 +33,33 @@ To-do item:
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
 	  
-
+//add event listenr to button
 $("#addButton").click( function(){
+//addadd the input text as an unordered list item
 $('ul').append('<li>'+$('input').val()+' </li>')
+//clear text input field
 $('input').val('')
+//add click listener to li item
 $('li').click( function() {
+//add toggle class on the li item that toggles between being done class or not
 $(this).toggleClass('done')
 });
 
 });
+//add listenr to remove done button
 $("#removeDone").click( function(){
+//get each individual li item that is class .done
+$(".done").each( function() { 
+//make this li item fade away
+$(this).fadeTo(1000, 0);
+ //get date (today's date) object
  var d = new Date($.now());
-$("table").append('<tr> <td>'+$('.done').text()+'</td><td>'+d  +'</tr>')
+//append this marked done li item to the table, add the date boject's date to the second column
+ $("table").append('<tr> <td>'+$(this).text()+'</td><td>'+d  +'</tr>')
 
-$(".done").remove()
-
+//remove the .done element
+$(this).remove()
+});
 });
 </script>
 </html>
